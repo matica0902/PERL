@@ -1,6 +1,10 @@
 ##由於Perl的語法非常活潑，使得程式在維護時特別棘手，因此寫註解成為一項很重要的工作。 
 我建議你最好在每個副程式前面加上對這段副程式的描述，特別是需要傳遞的參數要註明清楚
 
+##Reference
+http://ind.ntou.edu.tw/~dada/cgi/Perlsynx.htm
+http://irw.ncut.edu.tw/peterju/perl.html
+
 #Esccape caracter important !!!!!!
 $x="ls -l";
 print "$x";             # Output ls -l
@@ -29,5 +33,8 @@ while(chomp($i=<STDIN>)) {
 next if ($i == 5);
 last unless ($i > 10);
 }
+
+#Open file 
+open(my $fh, '<:encoding(UTF-8)', $filename)  若不爽用 <符號開檔會如何??
 
 
