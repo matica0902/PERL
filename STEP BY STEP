@@ -1,3 +1,14 @@
+##由於Perl的語法非常活潑，使得程式在維護時特別棘手，因此寫註解成為一項很重要的工作。 
+我建議你最好在每個副程式前面加上對這段副程式的描述，特別是需要傳遞的參數要註明清楚
+
+#Esccape caracter important !!!!!!
+$x="ls -l";
+print "$x";             # Output ls -l
+print "\$x";            # Output $x
+print '$x';             # Output $x
+print `$x`;             # Output files in this directory
+
+
 ##LOOP
 
 #For
