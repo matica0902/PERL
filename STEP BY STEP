@@ -1,5 +1,22 @@
-#LOOP
+##LOOP
+
+#For
 compare three statment:
 (A) for($i=0; $i<=10; $i++) {Code Segment}
 (B) foreach $i (@array) {Code Segment}
 (c) for $i (0..10) {Code Segment}
+
+#While 
+while($i<=10) {Code Segment}
+
+#Do
+do {Code Segment} while(Expression);
+
+# Perl也有和C語言的break和continue一樣的指令，Perl叫它做 last 和 next (較口語化)。
+# last是跳出現在所在的迴圈，next則是跳過下面的指令直接執行下一次的迴圈。
+while(chomp($i=<STDIN>)) {
+next if ($i == 5);
+last unless ($i > 10);
+}
+
+
