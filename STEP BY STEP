@@ -12,6 +12,16 @@ print "\$x";            # Output $x
 print '$x';             # Output $x
 print `$x`;             # Output files in this directory
 
+#Fuxk  deserve variable and used meaning ex:$_ 
+$_	The default input and pattern-searching space.
+$digit	Contains the subpattern from a successful parentheses pattern match.
+$.	The current input line number of last filehandle read.
+$!	Contains the current value of errno.
+$0	The name of the file of the Perl script.
+@ARGV	The command line arguments issued when the script was started.
+@_	The parameter array for subroutines.
+%ENV	This associative array contains your current environment.
+
 
 ##LOOP
 
@@ -34,7 +44,59 @@ next if ($i == 5);
 last unless ($i > 10);
 }
 
-#Open file 
+#Open file    https://perldoc.perl.org/functions/open.html
 open(my $fh, '<:encoding(UTF-8)', $filename)  若不爽用 <符號開檔會如何??
 
+#Hash Array alike map
+(A)define diction
+my %hash=("i1","aaa","i2","bbb","i3","ccc");
+
+(B)change diction
+$hash{'i1'}="aaa"; $hash{'i2'}="bbb"; $hash{'i3'}="ccc";
+
+(C)拜訪diction by key& by value
+foreach $key (keys %hash) {
+print "$hash{$key}\n";
+}
+foreach $value (values %hash)
+while(($key,$value)=each %hash)
+
+## Filter and custom filter fumula
+(A)m//gimosx
+m命令可以讓你自訂pattern的分隔符號，而gimosx則是它的修飾選項
+($host, $port, $file)=($url=~m|http://([^/:]+):{0,1}(\d*)(\S*)$|);
+if $url="my.machine.tw:8080/cgi-bin/test.pl";
+then ($host, $port, $file)=($1, $2, $3)
+即$host="my.machine.tw"  =====> ([^/:]+)
+$port=8080               =====> :{0,1}(\d*)
+$file="/cgi-bin/test.pl" =====> (\S*)$
+
+(B)s/PATTERN/REPLACEMENT/egimox  
+egimox 其中分別為
+e	Evaluate the right side as an expression.
+g	Replace globally, i.e. all occurrences.
+i	Do case-insensitive pattern matching.
+m	Treat string as multiple lines.
+o	Only compile pattern once.
+s	Treat string as single line.
+x	Use extended regular expressions.
+
+$x =~ s/\s+//g
+把所有的white space全部去除掉
+
+$x =~ s/([^ ]*):*([^ ]*)/$2:$1/
+把用":"分開的兩個欄位互相對調
+
+$path =~ s|/usr/bin|/usr/local/bin|
+它也可以讓你自訂分隔符號哦
+
+(C)tr/SEARCHLIST/REPLACEMENTLIST/cds   這是也是取代的命令，和上一個不同的是SEARCHLIST和REPLACEMENTLIST只能是普通字串，而不是Regular Expression
+$x =~ tr/this/that/
+把"this"替換成"that"
+
+$x =~ tr/a-z/A-Z/
+把小寫字母全部替換成大寫字母
+
+$count = $x =~ tr/*/*/
+計算$x中有幾個"*"
 
