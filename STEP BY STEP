@@ -22,6 +22,18 @@ $0	The name of the file of the Perl script.
 @_	The parameter array for subroutines.
 %ENV	This associative array contains your current environment.
 
+#special operate
+~	Performs a 1s complement of the operator. This is a unary operator.
+!=	Returns Ture if the two operands are not equal, False otherwise.
+< = >	Returns -1 if the left operand is less than the right, +1 if is it greater than, and 0(False) otherwise.
+&&	Performs a logical AND operation. If the left operand is True m then the right operator is not evaluated.
+|	Returns the valueof the two operators bitwise ORed.
+^	Returns the valueof the two operators bitwise XORed.
++=	Adds the value of the right-hand operand to the value of the left-hand operand.
+-+	Subtracts the value of the right-hand operand to the value of the left-hand operand.
+>>	Shifts the left operand right by the number of bits that is specified by the right operand.
+<<	Shifts the left operand left by the number of bits that is specified by the right operand.
+
 
 ##LOOP
 
@@ -46,6 +58,12 @@ last unless ($i > 10);
 
 #Open file    https://perldoc.perl.org/functions/open.html
 open(my $fh, '<:encoding(UTF-8)', $filename)  若不爽用 <符號開檔會如何??
+
+#Array 
+my @array;
+(1)my @array=qw(a b c d);
+(2)my @array=("a","b","c","d");以上(1)等於(2)
+
 
 #Hash Array alike map
 (A)define diction
