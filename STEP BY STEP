@@ -60,10 +60,18 @@ last unless ($i > 10);
 open(my $fh, '<:encoding(UTF-8)', $filename)  若不爽用 <符號開檔會如何??
 
 #Array 
+(A)宣告
 my @array;
 (1)my @array=qw(a b c d);
 (2)my @array=("a","b","c","d");以上(1)等於(2)
 
+(B)增加元素
+$array[0]="a"; $array[1]="b"; $array[2]="c"; $array[3]="d";
+
+(C)拜訪
+for($i=0; $i<=$#array; $i++) {
+print "$array[$i]\n";
+}
 
 #Hash Array alike map
 (A)define diction
