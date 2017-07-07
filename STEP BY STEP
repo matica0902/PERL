@@ -1,9 +1,22 @@
 ##由於Perl的語法非常活潑，使得程式在維護時特別棘手，因此寫註解成為一項很重要的工作。 
 我建議你最好在每個副程式前面加上對這段副程式的描述，特別是需要傳遞的參數要註明清楚
 
+##前言
+perl 跟python Java 等語言個人覺得沒有不同;最大好處在於不用編譯之外
+0.但以簡單有規則文字處理linux 指令才是最強的以grep+awk 就非常強!!
+1.比對字符不用寫迴圈
+2.對於搜尋也是不用寫迴圈且可以有指定與取代功能
+3.對於結果處理可以升等到CGI等級
+4.跟bash sell 一樣銜接檔案管理這就優於python 與java
+5.結論若只是怕寫迴圈與程式簡單的系統用perl乾淨許多.
+6.結論2但是若真的要寫成系統其實python與java還是都可以做.
+7.結論3所以管理系統檔案用bash shell 或perl ;檔案管理直用指令;簡單ETL用perl ;ETL連接系統還是用python或java
+8.但是bash shell 可以直接寫 grep awk 不須轉換語法在簡單文字與檔案管理還是 勝過perl 只是沒辦法有完整的系統程式功能如java或python
+
 ##Reference
 http://ind.ntou.edu.tw/~dada/cgi/Perlsynx.htm
 http://irw.ncut.edu.tw/peterju/perl.html
+
 
 #Esccape caracter important !!!!!!
 $x="ls -l";
@@ -221,9 +234,33 @@ r	Carriage return(CR), ASCII 13(十進位)
 if ($x =~ /(\d+\.\d+)\.\d+\.\d+/) {
 print "海洋大學" if ($1 eq "140.121");
 }
+
+
+#substing
+
+##split
+
+##grep        
           
+##AWK  warning it is not use awk in perl;if you must use it in perl use "a2p"!! 
+
+##cut  waning it is not use in perl ;perl use split funciton!!
           
-          
+ cut -d ":" -f 1,6- /etc/passwd 
+## sed warning it is also no use in perl ;if you muat use it in perl use "s2p" dunction!!
+建議直接與AWK 搭配 淘汰SED !!
+
+## SUPER COMPARE WITH PYTHON GREAT ~~
+cat "$filename"  | with open("$filename",'r') as fin:        | Read the file Sequentially
+                 |     for line in fin:                      |   
+-----------------------------------------------------------------------------------
+grep 'something' | import re                                 | The python version returns
+                 | line = re.findall(r'something', line)[0]  | a list of matches. We are only
+                 |                                           | interested in the zero group
+-----------------------------------------------------------------------------------
+cut -d'"' -f2    | line = line.split('"')[1]                 | Splits the string and selects
+                 |                                           | the second field (which is
+                 |                                           | index 1 in python)
          
         
 
